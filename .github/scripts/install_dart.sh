@@ -17,9 +17,16 @@ fi
 
 DART_SDK_URL="https://storage.googleapis.com/dart-archive/channels/$DART_CHANNEL/raw/$DART_SDK_VERSION/sdk/$DART_ZIP_NAME"
 
-wget -qO- $DART_SDK_URL | tar -xvzf -
+curl --connect-timeout 15 --retry 5 $DART_SDK_URL > dartsdk.zip
+unzip dartsdk.zip
+rm dartsdk.zip
 
-DART_SDK_BIN_PATH=$(pwd)/dart-sdk/bin
-echo "::add-path::$DART_SDK_BIN_PATH"
+DART_SDK_PATH=$(pwd)/dart-sdk/bin
+echo "::add-path::$DART_SDK_PATH/bin"
+echo "::add-path::$HOME/.pub-cache/bin"
+echo "::set-env name=DART_SDK::$DART_SDK_PATH"
 
-(cd "$DART_SDK_BIN_PATH"; ls -l)
+#chmod +x "$(pwd)/dart-sdk/bin/dart"
+#chmod +x "$(pwd)/dart-sdk/bin/pub"
+
+(cd "$DART_SDK_PATH/bin"; ls -l)

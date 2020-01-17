@@ -21,6 +21,7 @@ jobs:
         env:
           DART_SDK_VERSION: ${{ matrix.dart }}
         shell: bash
+      - run: dart --version
       - run: pub get
       - run: dart example/download_chromium.dart
       - run: pub run test -P ci --platform vm
