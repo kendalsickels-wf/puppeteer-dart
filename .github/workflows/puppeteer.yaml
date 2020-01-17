@@ -20,6 +20,7 @@ jobs:
       - run: .github/scripts/install_dart.sh
         env:
           DART_SDK_VERSION: ${{ matrix.dart }}
+        shell: bash
       - run: pub get
       - run: dart example/download_chromium.dart
       - run: pub run test -P ci --platform vm

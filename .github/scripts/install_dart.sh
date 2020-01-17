@@ -21,3 +21,5 @@ wget -qO- $DART_SDK_URL | tar -xvzf -
 
 DART_SDK_BIN_PATH=$(pwd)/dart-sdk/bin
 echo "::add-path::$DART_SDK_BIN_PATH"
+
+(cd "$DART_SDK_BIN_PATH"; ls -l)
