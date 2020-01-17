@@ -17,9 +17,7 @@ fi
 
 DART_SDK_URL="https://storage.googleapis.com/dart-archive/channels/$DART_CHANNEL/raw/$DART_SDK_VERSION/sdk/$DART_ZIP_NAME"
 
-echo "download $DART_SDK_URL"
-##wget -qO- $DART_SDK_URL | tar -xvzf -
+wget -qO- $DART_SDK_URL | tar -xvzf -
 
 DART_SDK_BIN_PATH=$(pwd)/dart-sdk/bin
-#export PATH=$PATH:$DART_SDK_BIN_PATH
 echo "::add-path::$DART_SDK_BIN_PATH"
