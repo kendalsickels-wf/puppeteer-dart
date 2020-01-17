@@ -21,7 +21,7 @@ curl --connect-timeout 15 --retry 5 $DART_SDK_URL > dartsdk.zip
 unzip dartsdk.zip
 rm dartsdk.zip
 
-DART_SDK_PATH=$(pwd)/dart-sdk/bin
+DART_SDK_PATH=$(pwd)/dart-sdk
 echo "::add-path::$DART_SDK_PATH/bin"
 echo "::add-path::$HOME/.pub-cache/bin"
 echo "::set-env name=DART_SDK::$DART_SDK_PATH"
