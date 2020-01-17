@@ -26,7 +26,4 @@ echo "::add-path::$DART_SDK_PATH/bin"
 echo "::add-path::$HOME/.pub-cache/bin"
 echo "::set-env name=DART_SDK::$DART_SDK_PATH"
 
-#chmod +x "$(pwd)/dart-sdk/bin/dart"
-#chmod +x "$(pwd)/dart-sdk/bin/pub"
-
 (cd "$DART_SDK_PATH/bin"; ls -l)
