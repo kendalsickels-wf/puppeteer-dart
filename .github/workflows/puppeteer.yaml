@@ -24,5 +24,6 @@ jobs:
       - run: dart --version
         shell: bash
       - run: pub get
+        shell: bash
 #      - run: dart example/download_chromium.dart
 #      - run: pub run test -P ci --platform vm
