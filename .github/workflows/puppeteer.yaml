@@ -21,7 +21,7 @@ jobs:
       #  env:
       #    DART_SDK_VERSION: ${{ matrix.dart }}
       #  shell: bash
-      - uses: renatoathaydes/setup-dart
+      - uses: renatoathaydes/setup-dart@v0
         with:
           dart-version: '2.7.0'
       - run: dart --version
