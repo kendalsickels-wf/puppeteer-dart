@@ -24,6 +24,7 @@ jobs:
       - uses: xvrh/setup-dart@v1
         with:
           dart-version: '2.7.0'
+          dart-channel: 'stable'
       - run: dart --version
       - run: pub get
 #      - run: dart example/download_chromium.dart
