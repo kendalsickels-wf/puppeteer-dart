@@ -21,10 +21,17 @@ jobs:
       #  env:
       #    DART_SDK_VERSION: ${{ matrix.dart }}
       #  shell: bash
-      - uses: renatoathaydes/setup-dart@v0
+      - uses: renatoathaydes/setup-dart@3b95365435a69b0ba86aab1129fdba2f31b2dd83
         with:
           dart-version: '2.7.0'
       - run: dart --version
       - run: pub get
 #      - run: dart example/download_chromium.dart
 #      - run: pub run test -P ci --platform vm
+      - name: "check for uncommitted changes"
+        # Ensure no changes, but ignore node_modules dir since dev/fresh ci deps installed.
+        run: |
+          git diff --exit-code --stat -- . \
+          || (echo "##[error] found changed files after build. please run 'dart tool/prepare_submit.dart'" \
+                   "and check in all changes" \
+              && exit 1)
