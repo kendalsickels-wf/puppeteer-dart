@@ -17,13 +17,14 @@ jobs:
 #      CHROME_FORCE_NO_SANDBOX: true
     steps:
       - uses: actions/checkout@v2
-      - run: .github/scripts/install_dart.sh
-        env:
-          DART_SDK_VERSION: ${{ matrix.dart }}
-        shell: bash
+      #- run: .github/scripts/install_dart.sh
+      #  env:
+      #    DART_SDK_VERSION: ${{ matrix.dart }}
+      #  shell: bash
+      - uses: renatoathaydes/setup-dart
+        with:
+          dart-version: '2.7.0'
       - run: dart --version
-        shell: bash
       - run: pub get
-        shell: bash
 #      - run: dart example/download_chromium.dart
 #      - run: pub run test -P ci --platform vm
