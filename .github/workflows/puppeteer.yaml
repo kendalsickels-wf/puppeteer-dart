@@ -9,7 +9,7 @@ jobs:
     name: Run tests
     strategy:
       matrix:
-        os: [linux-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         dart: ['2.7.0', '2.8.0-dev.3.0']
     runs-on: ${{ matrix.os }}
 #    env:
@@ -21,7 +21,7 @@ jobs:
       #  env:
       #    DART_SDK_VERSION: ${{ matrix.dart }}
       #  shell: bash
-      - uses: xvrh/setup-dart@v1
+      - uses: xvrh/setup-dart@v2
         with:
           dart-version: '2.7.0'
       - run: dart --version
