@@ -21,7 +21,7 @@ jobs:
       #  env:
       #    DART_SDK_VERSION: ${{ matrix.dart }}
       #  shell: bash
-      - uses: xvrh/setup-dart@v2
+      - uses: xvrh/setup-dart@v1
         with:
           dart-version: '2.7.0'
       - run: dart --version
